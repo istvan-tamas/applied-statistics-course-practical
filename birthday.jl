@@ -1,4 +1,4 @@
-function bday(M)
+function bday(m)
     if m < 2
         return 0
     elseif m > 365
@@ -9,6 +9,6 @@ function bday(M)
 end
 
 
-m = parse(Int16, readline())
+m = parse(Float64, readline())
 
 print(bday(m))
