@@ -11,4 +11,4 @@ end
 
 m = parse(Float64, readline())
 
-print(bday(m))
+println(bday(m))
