@@ -1,14 +1,16 @@
-S=parse(Int,readline())
+n=parse(Int,readline())
+pre=fill(0.0, 6*n)
+p=(1.0/6.0)^n
 
-pre=fill(0.0, 6*S)
-p=(1.0/6.0)^S
-
-x = [1:6;; 1:6;; 1:6]
-
-for i in x
-    for j in x
-        pre[i+j]+=p
+function calc_prob(n)
+    i=1
+    while i < n
+        for j in 1:6
+            pre[i+j]+=p
+        end
+        calc_prob(n-1)
     end
 end
 
-println(2<S<19 ? pre[S] : 0.0)
+calc_prob(n)
+println(pre)
