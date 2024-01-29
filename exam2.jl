@@ -5,9 +5,9 @@ end
 function expected(p)
     e = 0
     for i in 2:5
-        e += (i*p*(1/4))
+        e += p*(i*(1/4))
     end
-    return e
+    return e + (1 * (1 - p))
 end
 
 n,k=parse.(Int,split(readline()))
@@ -17,5 +17,4 @@ n,k=parse.(Int,split(readline()))
 p = solve(n,k)
 e = expected(p)    
 
-println(p)
 println(e)
