@@ -22,4 +22,3 @@ end
 n = parse(Int, readline())
 simulations = 100000
 probability = simulate_walks(n, simulations)
-println("Probability of landing at 0 after $n steps: ", probability)
