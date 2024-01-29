@@ -1,16 +1,5 @@
-n=parse(Int,readline())
-pre=fill(0.0, 6*n)
-p=(1.0/6.0)^n
-
-function calc_prob(n)
-    i=1
-    while i < n
-        for j in 1:6
-            pre[i+j]+=p
-        end
-        calc_prob(n-1)
-    end
+function p_dice(dice, n)
+    return sum(1/6 * p_dice(dice-1, n-outcome) for outcome in 1:6)
 end
 
-calc_prob(n)
-println(pre)
+println(p_dice(2, 7))
