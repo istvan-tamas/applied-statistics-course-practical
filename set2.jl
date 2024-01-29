@@ -1,6 +1,6 @@
-using Distributions
-N,K=parse.(Int, split(readline()))
-P=pdf(Binomial(N,0.5),K) # pdf=prob. density function
-println(P)
+function calc_set(N)
+    return 3^N/2^(2*N)
+end
 
-(N alatt M)/2N
+N=parse(Int, readline())
+println(calc_set(N))
