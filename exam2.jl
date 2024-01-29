@@ -5,7 +5,7 @@ end
 function expected(p)
     e = 0
     for i in 2:5
-        e += i*(1/4)
+        e += (i*p*(1/4))
     end
     return e
 end
