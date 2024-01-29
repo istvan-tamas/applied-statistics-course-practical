@@ -2,7 +2,7 @@ using Memoize # using Pkg; Pkg.add("Memoize")
 @memoize function p_dice(dice, sides, n)
     # Returns the probability dice dice with side sides
     # sum up to n,
-    # where side ∈ 1:sides
+    # where side ∈ 1:sidess
     if dice == 1
         if 1 <= n <= sides
             return 1/sides
