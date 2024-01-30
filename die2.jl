@@ -1,8 +1,5 @@
 using Memoize # using Pkg; Pkg.add("Memoize")
 @memoize function p_dice(dice, n)
-    # Returns the probability dice dice with side sides
-    # sum up to n,
-    # where side ∈ 1:sidess
     if dice == 1
         if 1 <= n <= 6
             return 1/6
@@ -13,8 +10,12 @@ using Memoize # using Pkg; Pkg.add("Memoize")
     return sum(1/6 * p_dice(dice-1, n-outcome) for outcome in 1:6)
 end
 
-n = 4
+n = parse(Float64, readline())
 
-for i in n:n*6
-    println(p_dice(n, i))
+if n > 55 || n < 0
+    return 0
+else
+    for i in n:n*6
+        println(p_dice(n, i))
+    end
 end
