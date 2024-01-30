@@ -1,15 +1,12 @@
-using Distributions, StatsBase
+using Distributions, StatsBase, HypothesisTests
 
-mu0 = -2.16
-alpha = 0.09
-mode = 0.0
+mu0 = -1.47
+alpha = 0.06
+mode = 1.0
 
-sample = [-1.85, -2.47]
+sample = [-1.16, -1.78]
 
-t = (mean(sample) - mu0)*sqrt(length(sample))/std(sample)
-
-d = TDist(length(sample)-1)
-
+t = OneSampleTTest(mean(sample), std(sample), length(sample), mu0)
 
 if mode == 0
     d = 2*TDist(length(sample))
@@ -18,8 +15,8 @@ elseif mode == 1 || mode == -1
 end
 
 
-if quantile(d, 0.1) < alpha
-    println("0")
-else
+if quantile(d, 1-alpha) < alpha
     println("1")
+else
+    println("0")
 end
