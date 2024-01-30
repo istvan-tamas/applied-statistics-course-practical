@@ -7,7 +7,7 @@ number = 3
 if length(a) > length(b)
     println(sum(sum((a*b') .> 0))/(length(a) * length(b)))
 elseif length(a) < length(b)
-    println(sum(sum((b'*a) .> 0))/(length(a) * length(b)))
+    println(sum(sum((b'*a) .> 0))/(length(a) * length(b)*length(b)))
 else
     println(sum(sum((a*b') .> 0))/(length(a) * length(b)))
 end
