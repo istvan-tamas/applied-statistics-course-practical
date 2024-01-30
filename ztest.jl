@@ -17,11 +17,11 @@ z = (mean - u) / (sig/sqrt(n))
 if mode == 0
     p = 2*(1-cdf(Normal(0,1), abs(z)))
 elseif mode == 1 || mode == -1
-    p = 1-cdf(Normal(0,1), z)
+    p = 1-cdf(Normal(0,1), abs(z))
 end
 
-if p > alpha
-    println("0")
-else
+if p < alpha
     println("1")
+else
+    println("0")
 end
