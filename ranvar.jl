@@ -15,8 +15,6 @@ sd = 0
 mean = sum(u)/length(u)
 
 for j in 1:length(sig)
-
-    #global sd = sum((u[j]-Statistics.mean(u))^2/length(u))
     global sd = sqrt(sum((u[j]-exp)^2*sig[j]))
 end
 
