@@ -1,10 +1,10 @@
-a=[]
-b=[]
+a = [361, 572, 473, 791]
+b = [816, -883, 642, -894]
 
-a,b=parse.(Float64, split(readline()))
-
-a = [-6, -9, 4, 2]
-b = [10, 9, -5, -10, 0]
-
-
-println(sum(sum((a*b') .> 0))/(length(a) + length(b)))
+if length(a) > length(b)
+    println(sum(sum((a*b') .> 0))/(length(a) * length(b)))
+elseif length(a) < length(b)
+    println(sum(sum((b'*a) .> 0))/(length(a) * length(b)))
+else
+    println(sum(sum((a*b') .> 0))/(length(a) * length(b)))
+end

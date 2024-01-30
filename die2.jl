@@ -1,20 +1,20 @@
 using Memoize # using Pkg; Pkg.add("Memoize")
-@memoize function p_dice(dice, sides, n)
+@memoize function p_dice(dice, n)
     # Returns the probability dice dice with side sides
     # sum up to n,
     # where side ∈ 1:sidess
     if dice == 1
-        if 1 <= n <= sides
-            return 1/sides
+        if 1 <= n <= 6
+            return 1/6
         else
             return 0
         end
     end
-    return sum(1/sides * p_dice(dice-1, sides, n-outcome) for outcome in 1:sides)
+    return sum(1/6 * p_dice(dice-1, n-outcome) for outcome in 1:6)
 end
 
 n = 4
 
 for i in n:n*6
-    println(p_dice(n, 6, i))
+    println(p_dice(n, i))
 end
