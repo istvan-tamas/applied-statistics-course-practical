@@ -12,7 +12,7 @@ end
 
 n = parse(Float64, readline())
 
-if n > 55 || n < 0
+if n >= 55 || n <= 0
     return 0
 else
     for i in n:n*6

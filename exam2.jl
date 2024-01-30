@@ -1,20 +1,18 @@
-function solve(N,K)
-    return 1.0-(N-K)*(N-K-1)/(N*(N-1))
-end
-
-function expected(p)
+function expected_exam(N,K)
     e = 0
+    p = 1.0-(N-K)*(N-K-1)/(N*(N-1))
     for i in 2:5
         e += p*(i*(1/4))
     end
     return e + (1 * (1 - p))
 end
 
-n,k=parse.(Int,split(readline()))
+N,K=parse.(Int,split(readline()))
 
-
-
-p = solve(n,k)
-e = expected(p)    
-
-println(e)
+if (N > 30 || K > N)
+    return 0
+elseif (K < 0)
+    return 0
+else
+    println(expected_exam(N,K))
+end

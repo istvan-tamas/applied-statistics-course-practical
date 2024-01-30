@@ -10,7 +10,7 @@ end
 
 p = parse(Float64, readline())
 
-if p > 1.0 || p < 0.0
+if p >= 1.0 || p < 0.0
     return 0
 else
     println(bday_p(p))
