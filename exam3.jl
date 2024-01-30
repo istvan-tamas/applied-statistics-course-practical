@@ -8,7 +8,12 @@ function exam_p(N,p)
     end 
 end
 
-N,p=parse.(Float64,split(readline()))
+N,P=parse.(Float64,split(readline()))
 
-result = exam_p(N,p)
-println(trunc(Int,result))
+if (N <= 1 || N > 30)
+    return 0
+elseif (P > 1 || P < 0)
+    return 0
+else
+    println(trunc(Int64,exam_p(N,P)))
+end

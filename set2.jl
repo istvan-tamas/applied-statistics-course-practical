@@ -3,4 +3,9 @@ function calc_set(N)
 end
 
 N=parse(Int, readline())
-println(calc_set(N))
+
+if (N < 0 || N > 20)
+    return 0
+else
+    println(calc_set(N))
+end
