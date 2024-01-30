@@ -1,5 +1,6 @@
 
-
 M = parse(Int, readline())
 
-println(binomial(M+2, M) * 0.5^M)
+p = trunc(Int, M/2)
+
+println(binomial(M, p) * (0.5^M))
