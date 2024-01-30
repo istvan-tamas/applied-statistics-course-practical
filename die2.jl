@@ -1,9 +1,20 @@
-pre=fill(0.0, 6*S)
-p=(1.0/6.0)^S
-
-for i=1:6,j=1:6,k=1:6 
-  pre[i+j+k]+=p
+using Memoize # using Pkg; Pkg.add("Memoize")
+@memoize function p_dice(dice, sides, n)
+    # Returns the probability dice dice with side sides
+    # sum up to n,
+    # where side ∈ 1:sidess
+    if dice == 1
+        if 1 <= n <= sides
+            return 1/sides
+        else
+            return 0
+        end
+    end
+    return sum(1/sides * p_dice(dice-1, sides, n-outcome) for outcome in 1:sides)
 end
 
-S=parse(Int,readline())
-println(pre)
+n = 4
+
+for i in n:n*6
+    println(p_dice(n, 6, i))
+end
