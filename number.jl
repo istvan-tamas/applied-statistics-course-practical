@@ -1,3 +1,6 @@
+a=[]
+b=[]
+
 a,b=parse.(Float64, split(readline()))
 
 a = [-6, -9, 4, 2]
