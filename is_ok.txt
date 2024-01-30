@@ -1,0 +1,15 @@
+bday2 - OK
+chisq - OK
+die2 - OK
+die4 - OK
+exam2 - OK
+exam3 - OK
+set2 - OK
+number - OK
+walk - OK
+walk3 - OK
+ranvar - OK
+sample - OK
+desc - OK
+ztest - OK
+ttest - OK
