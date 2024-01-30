@@ -1,10 +1,7 @@
-pre=fill(0.0, 6)
+n,M=parse.(Int,split(readline()))
 
-p=(1.0/6.0)^S
-for i=1:6,j=1:6
-  pre[max(i,j)]+=p
-end
+k=(M^n)-((M-1)^n)
+P=k/(6^n)
 
 
-S=parse(Int,readline())
-println(0<S<7 ? pre[S] : 0.0)
+println(P)
