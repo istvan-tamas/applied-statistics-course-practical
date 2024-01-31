@@ -1,9 +1,11 @@
+using Ranges
+
 function bday2(p)
     x = 0.0
     for i in range(1,365)
         x = 1 - prod(1.0 .- range(0,i-1)/365.0)
         if x >= p
-            return i
+            return i-1
         end
     end
 end
