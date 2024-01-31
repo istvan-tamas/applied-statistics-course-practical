@@ -1,18 +1,16 @@
 
-u = [-99, 40, 33, -85]
-sig = [0.0625, 0.1875, 0.4375, 0.3125]
+function ranvar(v,p)
+    exp = 0
+    for i in 1:length(v)
+        exp += sum(v[i]*p[i])
+    end
 
-exp = 0
-
-for i in 1:length(u)
-    global exp += sum(u[i]*sig[i])
+    sd = 0
+    sd = sqrt(sum((v[j]-exp)^2*p[j] for j in 1:length(p)))
+    println(exp, " ", sd)
 end
 
+v = parse.(Int64,split(readline()))
+p = parse.(Float64,split(readline()))
 
-mean = sum(u)/length(u)
-
-sd = 0
-sd = sqrt(sum((u[j]-exp)^2*sig[j] for j in 1:length(sig)))
-
-println(exp)
-println(sd)
+ranvar(v,p)
