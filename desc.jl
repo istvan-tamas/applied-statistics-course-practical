@@ -1,8 +1,8 @@
 using Statistics
 
-input = [-6.03,-7.41,7.25]
+function desc(input)
+    println(mean(input), " ", std(input), " ", median(input))
+end
 
-
-println(mean(input))
-println(std(input))
-println(median(input))
+input = parse.(Float64,split(readline()))
+desc(input)
