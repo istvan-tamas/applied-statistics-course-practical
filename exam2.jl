@@ -1,4 +1,4 @@
-function expected_exam(N,K)
+function exam2(N,K)
     e = 0
     p = 1.0-(N-K)*(N-K-1)/(N*(N-1))
     for i in 2:5
@@ -14,5 +14,5 @@ if (N > 30 || K > N)
 elseif (K < 0)
     return 0
 else
-    println(expected_exam(N,K))
+    println(exam2(N,K))
 end

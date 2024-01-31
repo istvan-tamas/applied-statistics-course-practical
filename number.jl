@@ -1,4 +1,4 @@
-function calc_mat(a,b)
+function number(a,b)
     if length(a) > length(b)
         print(sum(sum((a*b') .> 0))/(length(a) * length(b)))
     elseif length(a) < length(b)
@@ -12,4 +12,4 @@ info = parse.(Int64,split(readline()))
 a = parse.(Int64,split(readline()))
 b = parse.(Int64,split(readline()))
 
-calc_mat(a,b)
+number(a,b)

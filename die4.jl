@@ -1,4 +1,4 @@
-function max_die(n,m)
+function die4(n,m)
     k=(M^n)-((M-1)^n)
     P=k/(6^n)
     return P
@@ -12,6 +12,6 @@ else
     if (M >= 10 || M < 0)
         return 0
     else
-        println(max_die(n,M))
+        println(die4(n,M))
     end
 end
