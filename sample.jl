@@ -1,19 +1,24 @@
-a = [-8.0, 3.0]
-b = [7.0, -6.0]
+function sample(n,m)
+    a = length(n)
+    sort!(n)
+    distribution = Float64[]
+    for q in m
+        c = count(x -> (x < q), n)
+        f_i = c / a
 
-n = 2
-
-sort!(a)
-distribution = Float64[]
-
-for q in b
-    c = count(x -> (x < q), a)
-    f_i = c / n
-
-    for i in f_i
-        push!(distribution, i)
+        for i in f_i
+            push!(distribution, i)
+        end
     end
+    return distribution
 end
 
+info = parse.(Int64,split(readline()))
+n = parse.(Float64,split(readline()))
+m = parse.(Float64,split(readline()))
 
-println(distribution)
+value = sample(n,m)
+
+for i in value
+    print(i, " ")
+end
