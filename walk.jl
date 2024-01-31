@@ -1,6 +1,12 @@
+function walk(P,p)
+    return binomial(P, round(Int,p)) * (0.5^P)
+end
 
-M = parse(Int, readline())
+P = parse(Int, readline())
 
-p = trunc(Int, M/2)
-
-println(binomial(M, p) * (0.5^M))
+if P < 0 || P > 60
+    return 0
+else
+    p = P/2
+    println(walk(P,p))
+end
