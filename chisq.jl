@@ -13,10 +13,6 @@ function chisq(info, dist, sample)
 
     chi2_test = ChisqTest(obs_freq, a)
 
-    #println(chi2_test.stat)
-
-    #println(cquantile(Chisq(sample-1),alpha))
-
     p = ccdf(Chisq(sample-1), cquantile(Chisq(sample-1),alpha))
 
     if p < alpha
