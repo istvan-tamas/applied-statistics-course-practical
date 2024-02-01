@@ -16,9 +16,9 @@ function chisq(info, dist, sample)
     p = ccdf(Chisq(sample-1), cquantile(Chisq(sample-1),alpha))
 
     if p < alpha
-        print(chi2_test.stat, " ", cquantile(Chisq(sample-1),alpha), " ", 1)
-    else
         print(chi2_test.stat, " ", cquantile(Chisq(sample-1),alpha), " ", 0)
+    else
+        print(chi2_test.stat, " ", cquantile(Chisq(sample-1),alpha), " ", 1)
     end
 end
 
