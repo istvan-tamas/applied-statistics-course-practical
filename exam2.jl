@@ -1,4 +1,4 @@
-function exam2(N,K)
+function exam2_2(N,K)
     e = 0
     p = 1.0-(N-K)*(N-K-1)/(N*(N-1))
     for i in 2:5
@@ -7,12 +7,19 @@ function exam2(N,K)
     return e + (1 * (1 - p))
 end
 
-N,K=parse.(Int,split(readline()))
-
-if (N > 30 || K > N)
-    return 0
-elseif (K < 0)
-    return 0
-else
-    println(exam2(N,K))
+function exam2(fin, fout)
+    N,K = parse.(Int64,split(readline(fin)))
+    if (N > 30 || K > N)
+        return 0
+    elseif (K < 0)
+        return 0
+    else
+        println(fout,exam2_2(N,K))
+    end
+end
+  
+solve(fin, fout)=exam2(fin, fout)
+  
+if abspath(PROGRAM_FILE)==@__FILE__
+    solve(stdin, stdout)
 end

@@ -1,4 +1,6 @@
-function ranvar(v,p)
+using Printf
+
+function ranvar_2(v,p)
     exp = 0
     for i in 1:length(v)
         exp += sum(v[i]*p[i])
@@ -6,10 +8,18 @@ function ranvar(v,p)
 
     sd = 0
     sd = sqrt(sum((v[j]-exp)^2*p[j] for j in 1:length(p)))
-    println(exp, " ", sd)
+    fout = @sprintf("%.12f %.12f", exp, sd)
+    return fout
 end
 
-v = parse.(Int64,split(readline()))
-p = parse.(Float64,split(readline()))
-
-ranvar(v,p)
+function ranvar(fin, fout)
+    v = parse.(Int64,split(readline(fin)))
+    p = parse.(Float64,split(readline(fin)))
+    println(fout,ranvar_2(v,p))
+end
+  
+solve(fin, fout)=ranvar(fin, fout)
+  
+if abspath(PROGRAM_FILE)==@__FILE__
+    solve(stdin, stdout)
+end

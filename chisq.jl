@@ -1,7 +1,8 @@
 using HypothesisTests
 using Distributions
+using Printf
 
-function chisq(info, dist, sample)
+function chisq_2(info, dist, sample)
 
     k = info[1]
     alpha = info[2]
@@ -16,14 +17,23 @@ function chisq(info, dist, sample)
     p = ccdf(Chisq(sample-1), cquantile(Chisq(sample-1),alpha))
 
     if p < alpha
-        print(chi2_test.stat, " ", cquantile(Chisq(sample-1),alpha), " ", 0)
+        fout = @sprintf("%.12f %.12f %d", chi2_test.stat, cquantile(Chisq(sample-1),alpha), 0)
+        return fout
     else
-        print(chi2_test.stat, " ", cquantile(Chisq(sample-1),alpha), " ", 1)
+        fout = @sprintf("%.12f %.12f %d", chi2_test.stat, cquantile(Chisq(sample-1),alpha), 1)
+        return fout
     end
 end
 
-info = parse.(Float64,split(readline()))
-dist = parse.(Float64,split(readline()))
-sample = parse.(Float64,split(readline()))
-
-chisq(info, dist, sample)
+function chisq(fin, fout)
+  info = parse.(Float64,split(readline(fin)))
+  dist = parse.(Float64,split(readline(fin)))
+  sample = parse.(Float64,split(readline(fin)))
+  println(fout,chisq_2(info, dist, sample))
+end
+  
+solve(fin, fout)=chisq(fin, fout)
+  
+if abspath(PROGRAM_FILE)==@__FILE__
+  solve(stdin, stdout)
+end
